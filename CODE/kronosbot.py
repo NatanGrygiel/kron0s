@@ -5,7 +5,8 @@ import time
 from selenium.webdriver.common.by import By
 # ścieżka do sterownika, w tym przypadku Google Chrome
 PATH = "CODE/chromedriver"
-driver = webdriver.Chrome(PATH)
+options = webdriver.ChromeOptions()
+driver = webdriver.Chrome(executable_path = r'CODE/chromedriver', chrome_options = options)
 
 print("kron0s")
 print("NewtonPL 2022")
@@ -16,7 +17,9 @@ print("(1) nowa, (2)niezakończona")
 sesyja = int(input())
 print("=================")
 
-#wczytujemy bazę słówek, w CODE/instaling_n.config
+#wczytujemy bazę słówek, zmień nazwę na:
+#instaling_n.config | niemiecki
+#instaling_a.config | angielski
 baza = {}
 with open('CODE/instaling_n.config', encoding="utf-8") as f:
     for line in f:
@@ -32,7 +35,7 @@ nazwa = driver.find_element(By.ID, "log_email")
 nazwa.send_keys("nick")
 
 haslo = driver.find_element(By.ID, "log_password")
-haslo.send_keys("haslo")
+haslo.send_keys("hasło")
 haslo.send_keys(Keys.RETURN)
 
 sesja = driver.find_element(By.CLASS_NAME, "sesion")
