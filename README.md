@@ -9,9 +9,13 @@ Użyj podanych skryptów aby zainstalować Pythona 3 oraz wymagane paczki:
 Windows(jako administrator) `kron0s_setup_win.ps1`
 
 
+aby otworzyć plik ps1, musisz najpierw wejść w PowerShell jako administrator i wpisać `set-executionpolicy remotesigned`, inaczej skrypt się nie uruchomi, na końcu użyj `cd` aby wejść w folder z programem i wpisz `.\kron0s_setup_win.ps1`
+
+
 Linux(pacman & sudo) `kron0s_setup_linux.sh`
+
  
- 
+linux jest na szczęście prostrzy, wystarczy wpisać `sh (droga do pliku)/kron0s_setup_linux.sh`, na niektórych dystrybucjach trzeba uruchomić sh jako `sudo` albo `doas`
 
 w przypadku innych dystrybucji, zamień pacmana na swój ulubiony menedżer paczek, oraz zamień sudo na doas, gdy go używasz.
 
