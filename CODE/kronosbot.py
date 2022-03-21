@@ -3,10 +3,11 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import time
 from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.service import Service
 # ścieżka do sterownika, w tym przypadku Google Chrome
-PATH = "CODE/chromedriver"
+serv = Service("CODE/chromedriver")
 options = webdriver.ChromeOptions()
-driver = webdriver.Chrome(executable_path = r'CODE/chromedriver', chrome_options = options)
+driver = webdriver.Chrome(service=serv, options = options)
 
 print("kron0s")
 print("NewtonPL 2022")
@@ -21,7 +22,7 @@ print("=================")
 #instaling_n.config | niemiecki
 #instaling_a.config | angielski
 baza = {}
-with open('CODE/instaling_n.config', encoding="utf-8") as f:
+with open('CODE/instaling_a.config', encoding="utf-8") as f:
     for line in f:
         key, value = line.split("=")
         baza[key.strip()] = value.strip(" \"\n")
@@ -35,7 +36,7 @@ nazwa = driver.find_element(By.ID, "log_email")
 nazwa.send_keys("nick")
 
 haslo = driver.find_element(By.ID, "log_password")
-haslo.send_keys("hasło")
+haslo.send_keys("haslo")
 haslo.send_keys(Keys.RETURN)
 
 sesja = driver.find_element(By.CLASS_NAME, "sesion")
@@ -50,7 +51,7 @@ strt.click()
 time.sleep(2)
 licznik = 0
 #wypełniamy pole [slowa] razy
-for i in range(10):
+for i in range(20):
     #wyszukujemy słowo
     word = driver.find_element(By.CLASS_NAME, "translations").text
     #wpisujemy odpowiedź z bazy danych
